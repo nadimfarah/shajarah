@@ -1,0 +1,13 @@
+class Authorization < ActiveRecord::Base
+def self.find_or_create(auth_hash)
+  unless auth = find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
+    user = User.create :email => auth_hash["user_info"]["email"]
+    profile = Profile.create :User_id => user.User_id, relation: => "Self"
+    auth = create :user => user, :provider => auth_hash["provider"], :uid => auth_hash["uid"]
+  end
+ 
+  auth
+end
+belongs_to :user
+validates :provider, :uid, :presence => true
+end
