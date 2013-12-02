@@ -10,11 +10,10 @@ def create
     render :text => "You can now login using #{auth_hash["provider"].capitalize} too!"
   else
     # Log him in or sign him up
-    auth = Authorization.find_or_create(auth_hash)
+
+    session[:user_id] = "1"
  
-    # Create the session
- 
-    render :text => "Welcome #{auth.user.name}!"
+    render :text => "Welcome !"
   end
  
 end
