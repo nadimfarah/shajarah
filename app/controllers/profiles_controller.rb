@@ -15,7 +15,7 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/new
   def new
-    @profile = Profile.new
+    @profile = Profile.new(profile_new_params)
    
   end
 
@@ -76,5 +76,8 @@ class ProfilesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
       params.require(:profile).permit(:firstname, :fathername, :lastname, :relation, :User_id)
+    end
+    def profile_new_params
+      params.permit(:firstname, :fathername, :lastname, :relation, :User_id)
     end
 end
