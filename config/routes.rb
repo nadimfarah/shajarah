@@ -8,7 +8,7 @@ root  'static_pages#home'
   match '/signup', to: 'users#new', via: 'get'
 
   get   '/login', :to => 'sessions#new', :as => :login 
-  match 'auth/:provider/callback', to: root, via: [:get, :post]
+  match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
 
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
   get '/logout', :to => 'sessions#destroy'
