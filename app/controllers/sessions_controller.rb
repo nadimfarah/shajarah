@@ -15,7 +15,7 @@ def create
     # Create the session
     session[:user_id] = auth.user.id
  
-    render :text => "Welcome #{auth.user}!"
+    render session[:user_id]
   end
  
 end
