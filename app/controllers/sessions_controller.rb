@@ -7,13 +7,13 @@ def create
  
   @authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
   if @authorization
-    render :text => "Welcome back #{@authorization.user.name}! You have already signed up."
+    render :text => "Welcome back  You have already signed up."
   else
-    user = User.new :email => auth_hash["info"]["email"]
+    user = User.create :email => auth_hash["info"]["email"]
     user.authorizations.build :provider => auth_hash["provider"], :uid => auth_hash["uid"]
     user.save
  
-    render :text => "Hi #{user.name}! You've signed up."
+    render :text => "Hi You've signed up."
   end
 end
 def failure
