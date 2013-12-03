@@ -9,8 +9,8 @@ def create
     User.find(session[:uid]).add_provider(auth_hash)
     render :text => "You can now login using #{auth_hash["provider"].capitalize} too!"
   else
-    # Log him in or sign him up
-    auth = Authorization.find_or_create(auth_hash)
+
+  auth = Authorization.create (:user_id => 1, :provider => auth_hash["provider"], :uid => auth_hash["uid"])
     # Create the session
     session[:user_id] = 1
  
