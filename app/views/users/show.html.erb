@@ -1,8 +1,3 @@
- <% @user.profiles.each do |p| %>
-  <% if p.relation =='Self' %>
-<% provide(:title, p.firstname ) %>
-<% end %>
-  <% end %>
 <p id="notice"><%= notice %></p>
 <p>
   <%= gravatar(@user) %>
