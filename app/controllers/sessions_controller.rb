@@ -16,6 +16,7 @@ def create
     user.save
  
     render :text => "Hi You've signed up."
+    
   end
 end
 def failure
