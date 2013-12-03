@@ -8,7 +8,6 @@ before_save { self.email = email.downcase }
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, length: { minimum: 6 }
-end
 
 has_many :authorizations
 end
