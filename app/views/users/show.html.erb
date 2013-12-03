@@ -9,33 +9,3 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
-<% test = true %>
- <% @user.profiles.each do |p| %>
-  <% if p.relation =='Self' %>
-  <% test = false %>
-  <p><strong>Name:</strong>
-  <%= p.firstname %> <%= p.fathername %> <%= p.lastname %>
-  </p>
-  <% end %>
-<br/>
-<%= link_to 'Edit Profile', edit_profile_path(p) %> | 
-<% end %>
-<%= link_to 'Edit Account', edit_user_path(@user) %>
-<% if test == true %>
-<%= link_to 'Complete Profile', new_profile_path(:User_id => @user.id, :relation => "Self") %>
-<% end %>
-<p>Family:</p>
-<ul><% @user.profiles.each do |p| %>
- <% if p.relation != 'Self' %>
- <li><p>Name: <%= p.firstname %> <%= p.fathername %> <%= p.lastname %></p>
- 	<p>Relation: <%= p.relation %> </p><p>
- 	<%= link_to 'Destroy', p, method: :delete, data: { confirm: 'Are you sure?' } %> | <%= link_to 'Edit', edit_profile_path(p) %> </p></li>
-        <% end %>
-
-  <% end %>
-</ul>
-<%= link_to 'Add A Family Member', new_profile_path %>
-<div id = "update-container">
-
-</div>
-
