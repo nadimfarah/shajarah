@@ -13,7 +13,7 @@ def create
     auth = Authorization.find_or_create(auth_hash)
  
     # Create the session
-    session[:user_id] = auth.user.id
+    session[:user_id] = auth.user_id
  
     render session[:user_id]
   end
