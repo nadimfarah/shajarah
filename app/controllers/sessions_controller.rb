@@ -9,7 +9,7 @@ def create
   if @authorization
     render :text => "Welcome back  You have already signed up."
   else
-    user = User.create :email => auth_hash["info"]["email"]
+    user = User.create :email => auth_hash["user"]["email"]
     user.authorizations.build :provider => auth_hash["provider"], :uid => auth_hash["uid"]
     user.save
  
