@@ -10,7 +10,7 @@ def create
     render :text => "Welcome back  You have already signed up."
      user = User.create :email => auth_hash["info"]["email"]
     user.save
-    session[User_id] = 1
+    session[user_id] = 1
   else
     user = User.create :email => auth_hash["user"]["email"]
     user.authorizations.build :provider => auth_hash["provider"], :uid => auth_hash["uid"]
