@@ -4,19 +4,21 @@ class SessionsController < ApplicationController
 
 def create
   auth_hash = request.env['omniauth.auth']
-  if session[:uid]
+ 
+  if session[:user_id]
     # Means our user is signed in. Add the authorization to the user
-    User.find(session[:uid]).add_provider(auth_hash)
+    User.find(session[:user_id]).add_provider(auth_hash)
+ 
     render :text => "You can now login using #{auth_hash["provider"].capitalize} too!"
   else
-
-  auth = Authorization.create (:user_id => 1, :provider => auth_hash["provider"], :uid => auth_hash["uid"])
+    # Log him in or sign him up
+    auth = Authorization.find_or_create(auth_hash)
+ 
     # Create the session
-    session[:user_id] = 1
+    session[:user_id] = auth.user.id
  
-    render session[:user_id]
+    render :text => "Welcome !"
   end
- 
 end
 
 def failure
