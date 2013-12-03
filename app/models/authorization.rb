@@ -8,4 +8,5 @@ def self.find_or_create(auth_hash)
 end
 belongs_to :user
 validates :provider, :uid, :presence => true
+attr_accessible :provider, :uid, :user_id, :user (ADD :user)
 end
