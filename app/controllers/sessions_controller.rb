@@ -10,13 +10,14 @@ def create
     render :text => "Welcome back  You have already signed up."
      user = User.create :email => auth_hash["info"]["email"]
     user.save
+    session[User_id] = user.id
   else
     user = User.create :email => auth_hash["user"]["email"]
     user.authorizations.build :provider => auth_hash["provider"], :uid => auth_hash["uid"]
     user.save
  
     render :text => "Hi You've signed up."
-    
+
   end
 end
 def failure
