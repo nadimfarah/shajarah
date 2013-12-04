@@ -6,14 +6,7 @@
   <%= @user.email %>
 </p>
 <% test = true %>
- <% @user.profiles.each do |p| %>
-  <% if p.relation =='Self' %>
-  <% test = false %>
-  <p><strong>Name:</strong>
-  <%= p.firstname %> <%= p.fathername %> <%= p.lastname %>
-  </p>
-  <% end %>
-<br/>
-<%= link_to 'Edit Profile', edit_profile_path(p) %> | 
+<% unless @user.profiles.empty? %>
+<% @user.profiles.each do |p| %>
 <% end %>
-
+<% end %>
