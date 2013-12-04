@@ -5,5 +5,5 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
-<% if Profiles.find(:User_is => @user.id) %>
+<% if Profiles.find(:User_id => @user.id) %>
 <% end %>
