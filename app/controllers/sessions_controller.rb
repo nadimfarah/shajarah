@@ -7,10 +7,9 @@ def create
  
   @authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
   if @authorization
-    render  :text => @authorization
-
+ @authorization.user_id =1
   else
- 
+ @authorization.user_id =1
     render :text => "Hi You've signed up."
 
   end
