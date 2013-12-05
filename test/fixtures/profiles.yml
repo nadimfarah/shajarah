@@ -5,11 +5,11 @@ one:
   fathername: MyString
   lastname: MyString
   relation: MyString
-  User_id: 
+  user_id: 
 
 two:
   firstname: MyString
   fathername: MyString
   lastname: MyString
   relation: MyString
-  User_id: 
+  user_id: 

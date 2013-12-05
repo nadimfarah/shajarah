@@ -28,7 +28,7 @@ class ProfilesController < ApplicationController
  
   def create
     profile_params2 = profile_params
-    profile_params2[:User_id] = 1
+    profile_params2[:user_id] = 1
     @profile = Profile.new(profile_params2)
     respond_to do |format|
       if @profile.save
@@ -45,7 +45,7 @@ class ProfilesController < ApplicationController
   # PATCH/PUT /profiles/1.json
   def update 
     profile_params2 = profile_params
-    profile_params2[:User_id] = session[:User_id]
+    profile_params2[:user_id] = session[:user_id]
     respond_to do |format|
       if @profile.update(profile_params2)
         format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
@@ -75,9 +75,9 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:firstname, :fathername, :lastname, :relation, :User_id)
+      params.require(:profile).permit(:firstname, :fathername, :lastname, :relation, :user_id)
     end
     def profile_new_params
-      params.permit(:firstname, :fathername, :lastname, :relation, :User_id)
+      params.permit(:firstname, :fathername, :lastname, :relation, :user_id)
     end
 end
