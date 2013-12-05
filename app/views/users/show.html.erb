@@ -5,7 +5,6 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
-<% @user.profiles.each do  %>
-<%= "profile" %>
-<% end %>
+<%= @user.profiles.find(1) %>
+
 
