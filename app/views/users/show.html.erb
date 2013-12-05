@@ -5,8 +5,4 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
-<% @user.profiles.each do |p| %>
-<% if p.relation=="Self" %>
-<%= p.firstname %>
-<% end %>
-<% end %>
+<%= @user.profiles%>
