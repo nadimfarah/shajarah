@@ -8,13 +8,9 @@ def create
   @authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
   if @authorization
     render :text => "Welcome back  You have already signed up."
-     user = User.create :email => auth_hash["info"]["email"]
-    user.save
-    session[user_id] = 1
+    session[user_id] = @authorization[user_id]
   else
-    user = User.create :email => auth_hash["user"]["email"]
-    user.authorizations.build :provider => auth_hash["provider"], :uid => auth_hash["uid"]
-    user.save
+
  
     render :text => "Hi You've signed up."
 
