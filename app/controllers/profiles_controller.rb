@@ -28,7 +28,7 @@ class ProfilesController < ApplicationController
  
   def create
     profile_params2 = profile_params
-    profile_params2[:User_id] = session[:User_id]
+    profile_params2[:User_id] = session[:user_id]
     @profile = Profile.new(profile_params2)
     respond_to do |format|
       if @profile.save
