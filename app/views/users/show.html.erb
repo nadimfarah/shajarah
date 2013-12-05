@@ -5,7 +5,7 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
-<%= @user.profiles %>
+<%= @user.profiles.find_by "relation" , "Self" %>
 
 
 
