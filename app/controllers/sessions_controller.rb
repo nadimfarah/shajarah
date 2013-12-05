@@ -8,7 +8,8 @@ def create
   @authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
   if @authorization
     render :text => "Welcome back  You have already signed up."
-    render @authorization.user_id
+    @authorization.user_id = 1
+    render :text => authorization.user_id
   else
  
     render :text => "Hi You've signed up."
