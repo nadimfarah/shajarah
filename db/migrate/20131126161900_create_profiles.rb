@@ -5,7 +5,7 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :fathername
       t.string :lastname
       t.string :relation
-      t.references :User, index: true
+      t.references :user, index: true
 
       t.timestamps
     end
