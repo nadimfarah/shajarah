@@ -5,4 +5,4 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
-<%= @user.profiles.find(:relation => "Self")%>
+<%= @user.profiles.select {|profile| profile.relation =="Self"} %>
