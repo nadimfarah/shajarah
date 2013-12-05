@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20131201083736) do
     t.datetime "updated_at"
   end
 
-  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
+  add_index "profiles", ["User_id"], name: "index_profiles_on_User_id"
 
   create_table "users", force: true do |t|
     t.string   "email"
