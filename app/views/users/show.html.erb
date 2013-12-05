@@ -5,7 +5,9 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
-<%= @user.profiles.find_by "relation" , "Self" %>
+<% @user.profiles.each do |p| %>
+<%= p.firstname %>
+
 
 
 
