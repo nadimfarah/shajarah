@@ -5,4 +5,7 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
-<%= @user.profiles.select {|profile| profile.relation =="Self"} %>
+<% @user.profiles.each do |profile| %>
+<%= "profile" %>
+<% end %>
+
