@@ -10,7 +10,7 @@ def create
     render  :text => @authorization.user_id
 
   else
- user1= User.new
+ user1= User.new(:id => 2)
  @authorization.user_id =user1.id
       if user1.id
        render :text=> user1.id
