@@ -7,7 +7,7 @@ def create
  
   @authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
   if @authorization.user_id
-@authorization.user_id
+    render  :text => @authorization.user_id
 
   else
  user= User.create
