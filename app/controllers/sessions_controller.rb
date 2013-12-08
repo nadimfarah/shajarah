@@ -8,13 +8,10 @@ def create
   @authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
   if @authorization.user_id
     render  :text => @authorization.user_id
-    
 
   else
-    lastid = User.last.id  +1
- user1= User.new(:id => lastid)
- @authorization.user_id =user1.id
- redirect_to :controller => "users", :action => "show", :id =>  @authorization.user_id
+ 
+ redirect_to :controller => "users", :action => "show", :id =>  User.last.id
   end
 end
 def failure
