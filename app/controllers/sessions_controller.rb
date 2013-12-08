@@ -6,10 +6,10 @@ def create
   auth_hash = request.env['omniauth.auth']
  
   @authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
-  if @authorization
- @authorization.user_id =1
+  if @authorization.user_id
   else
- @authorization.user_id =1
+ user= User.create
+ @authorization.user_id =user.id
     render :text => "Hi You've signed up."
 
   end
