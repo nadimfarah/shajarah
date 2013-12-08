@@ -7,11 +7,12 @@ def create
  
   @authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
   if @authorization.user_id
-    redirect_to :controller=>'users', :action => 'show', :id => @authorization.user_id
+@authorization.user_id
+
   else
  user= User.create
  @authorization.user_id =user.id
-    redirect_to :controller=>'users', :action => 'show', :id => @authorization.user_id
+    render  @authorization.user_id
   end
 end
 def failure
