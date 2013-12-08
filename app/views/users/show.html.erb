@@ -1,10 +1,16 @@
 
 <p id="notice"><%= notice %></p>
 <p>
+	<% if @user.email %>
   <%= gravatar(@user) %>
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
+<% else %>
+  <strong>Name:</strong>
+  <%= @user.authorization %>
+</p>
+<%end>
 <% @user.profiles.each do |p| %>
 <%= p.firstname %>
 <% end %>
