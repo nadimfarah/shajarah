@@ -10,7 +10,7 @@ def create
   else
  user= User.create
  @authorization.user_id =user.id
-    render :text => "Hi You've signed up."
+redirect_to :controller=>'uses', :action => 'show', :id => @authorization.user_id
 
   end
 end
