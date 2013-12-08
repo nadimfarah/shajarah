@@ -11,6 +11,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
+  def build 
+    @user.User.build
+  end
 
   # GET /users/new
   def new
