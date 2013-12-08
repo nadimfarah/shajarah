@@ -11,7 +11,7 @@ def create
   else
  user= User.create
  @authorization.user_id =user.id
-    redirect_to :controller=>'Users_controller', :action => 'show', :id => @authorization.user_id
+    redirect_to :controller=>'users', :action => 'show', :id => @authorization.user_id
   end
 end
 def failure
