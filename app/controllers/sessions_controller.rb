@@ -9,11 +9,11 @@ def create
 
 
  lastid = User.last.id.to_i + 1
- user1= User.create(:id => lastid )
+ user1= User.new(:id => lastid )
  user1.save 
  @authorization.user_id = user1.id
 
-   redirect_to :controller => "users", :action => "show", :id =>  @authorization.user_id
+   redirect_to :controller => "users", :action => "show", :id => user1.id
 end
 def failure
   render :text => "Sorry, but you didn't allow access to our app!"
