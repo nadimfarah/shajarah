@@ -6,11 +6,7 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
-<% else %>
-  <strong>Name:</strong>
-  <%= @user.authorizations %>
-</p>
-<%end>
+<%end %>
 <% @user.profiles.each do |p| %>
 <%= p.firstname %>
 <% end %>
