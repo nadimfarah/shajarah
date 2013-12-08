@@ -10,12 +10,12 @@ def create
     render  :text => @authorization.user_id
 
   else
- user= User.new
- @authorization.user_id =user.id
-      if @authorization.user_id
-       render :text=> @authorization.user_id 
+ user1= User.new
+ @authorization.user_id =user1.id
+      if user1
+       render :text=> user1.id
      else 
-      render :text => "id=nill"
+      render :text => "id=nill" 
       end
   end
 end
