@@ -6,13 +6,13 @@ def create
   auth_hash = request.env['omniauth.auth']
  
   @authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
-  if @authorization.user_id
-    render  :text => @authorization.user_id
+  unless @authorization.user_id
 
-  else
  lastid = User.last.id.to_i 
- redirect_to :controller => "users", :action => "show", :id =>  lastid
+ user1= User.new(:id => lastid)
+ @authorization.user_id = user1.id
   end
+   redirect_to :controller => "users", :action => "show", :id =>  @authorization.user_id
 end
 def failure
   render :text => "Sorry, but you didn't allow access to our app!"
