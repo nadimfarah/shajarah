@@ -10,7 +10,7 @@ def create
     render  :text => @authorization.user_id
 
   else
- lastid = User.last.id.to_i + 1
+ lastid = User.last.id.to_i 
  redirect_to :controller => "users", :action => "show", :id =>  lastid
   end
 end
