@@ -12,7 +12,7 @@ def create
   else
  user1= User.new
  @authorization.user_id =user1.id
-      if user1
+      if user1.id
        render :text=> user1.id
      else 
       render :text => "id=nill" 
