@@ -10,8 +10,8 @@ def create
     render  :text => @authorization.user_id
 
   else
- 
- redirect_to :controller => "users", :action => "show", :id =>  User.last.id
+ lastid = User.last.id.delete(',').to_i + 1
+ redirect_to :controller => "users", :action => "show", :id =>  lastid
   end
 end
 def failure
