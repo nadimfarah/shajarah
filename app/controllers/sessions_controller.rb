@@ -12,7 +12,7 @@ def create
   else
  user= User.create
  @authorization.user_id =user.id
-    render  @authorization.user_id
+    render  :text => @authorization.user_id
   end
 end
 def failure
