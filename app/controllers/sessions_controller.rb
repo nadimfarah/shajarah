@@ -10,13 +10,10 @@ def create
     render  :text => @authorization.user_id
 
   else
- user1= User.new(:id => 2)
+    lastid = User.last.id  +1
+ user1= User.new(:id => lastid)
  @authorization.user_id =user1.id
-      if user1.id
-       render :text=> user1.id
-     else 
-      render :text => "id=nill" 
-      end
+ redirect_to :controller => "users", :action => "show", :id =>  @authorization.user_id
   end
 end
 def failure
