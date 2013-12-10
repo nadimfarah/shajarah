@@ -8,16 +8,17 @@ def create
   @authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
   email = auth_hash["extra"]["raw_info"]["email"]
   usertest = User.find_by_email(email)
-  if (usertest.nil){ 
+  if usertest.nil
     @authorization.user_id = usertestd:
-    cd ap.id}
-  else {
+    cd ap.id
+  else 
  lastid = User.last.id.to_i + 1
  user1= User.new
  user1.id= lastid
  user1.email = email
  user1.save(:validate => false)
- @authorization.user_id = user1.id}
+ @authorization.user_id = user1.id
+end
 
    redirect_to :controller => "users", :action => "show", :id => @authorization.user_id
 end
