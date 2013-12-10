@@ -10,7 +10,7 @@ def create
   usertest = User.find_by_email(email)
   if usertest.nil
     @authorization.user_id = usertestd:
-    cd ap.id
+
   else 
  lastid = User.last.id.to_i + 1
  user1= User.new
