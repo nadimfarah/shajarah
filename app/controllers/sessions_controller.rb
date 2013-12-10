@@ -9,7 +9,7 @@ def create
   email = auth_hash["extra"]["raw_info"]["email"]
   usertest = User.find_by_email(email)
   if usertest
-    @authorization.user_id = usertestd.id
+    @authorization.user_id = usertest.id
 
   else 
  lastid = User.last.id.to_i + 1
