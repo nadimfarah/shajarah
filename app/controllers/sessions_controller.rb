@@ -11,6 +11,7 @@ def create
  user1.id= lastid
  user1.save
  @authorization.user_id = user1.id
+ 
 
    redirect_to :controller => "users", :action => "show", :id => user1.id
 end
