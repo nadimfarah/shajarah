@@ -18,9 +18,7 @@ def create
  user1.save(:validate => false)
  @authorization.user_id = user1.id}
 
-
-
-   redirect_to :controller => "users", :action => "show", :id => user1.id
+   redirect_to :controller => "users", :action => "show", :id => @authorization.user_id
 end
 def failure
   render :text => "Sorry, but you didn't allow access to our app!"
