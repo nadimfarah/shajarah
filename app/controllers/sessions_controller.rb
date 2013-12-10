@@ -10,6 +10,7 @@ def create
   usertest = User.find_by_email(email)
   if usertest
     @authorization.user_id = usertest.id
+    
 
   else 
  lastid = User.last.id.to_i + 1
