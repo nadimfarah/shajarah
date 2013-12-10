@@ -7,7 +7,8 @@ def create
  
   @authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
  lastid = User.last.id.to_i + 1
- user1= User.create(:id => lastid )
+ user1= User.new
+ user1.id= lastid
  user1.save
  @authorization.user_id = user1.id
 
