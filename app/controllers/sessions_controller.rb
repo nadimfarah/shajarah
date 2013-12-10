@@ -8,8 +8,8 @@ def create
   @authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
   email = auth_hash["extra"]["raw_info"]["email"]
   usertest = User.find_by_email(email)
-  if usertest.nil
-    @authorization.user_id = usertestd:
+  unless usertest.nil
+    @authorization.user_id = usertestd.id
 
   else 
  lastid = User.last.id.to_i + 1
