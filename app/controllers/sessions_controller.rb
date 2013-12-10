@@ -6,7 +6,7 @@ def create
   auth_hash = request.env['omniauth.auth']
  
   @authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
-  email = auth_hash["extra"]["user_hash"]["email"]
+  email = auth_hash["extra"]["raw_info"]["email"]
  lastid = User.last.id.to_i + 1
  user1= User.new
  user1.id= lastid
