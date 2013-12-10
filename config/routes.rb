@@ -6,10 +6,8 @@ root  'static_pages#home'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
   match '/signup', to: 'users#new', via: 'get'
-
-  get   '/login', :to => 'sessions#new', :as => :login 
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
-
+  get   '/login', :to => 'sessions#new', :as => :login 
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
   get '/logout', :to => 'sessions#destroy'
   get '/users', :to => 'users#index'
