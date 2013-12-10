@@ -5,9 +5,9 @@ class SessionsController < ApplicationController
 def create
   if params
     user = User.find_by(email: params[:session][:email].downcase)
-    if user.password == params[:session][:password]
+    if user && user.authenticate(params[:session][:password])
           sign_in user
-   redirect_to :controller => "users", :action => "show", :id => user.id
+          redirect_to :controller => "users", :action => "show", :id => user.id
     else
       flash[:error] = 'Invalid email/password combination' # Not quite right!
       render 'new'
@@ -29,9 +29,9 @@ def create
       user1.save(:validate => false)
       @authorization.user_id = user1.id
     end
+    redirect_to :controller => "users", :action => "show", :id => @authorization.user_id
 end
 session
-   redirect_to :controller => "users", :action => "show", :id => @authorization.user_id
 end
 def failure
   render :text => "Sorry, but you didn't allow access to our app!"
