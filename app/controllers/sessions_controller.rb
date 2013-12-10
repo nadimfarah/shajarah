@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 def create
   if params
     user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
+    if user.password == params[:session][:password]
           sign_in user
       render user
     else
