@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   end
 
 def create
-checkemail = params[:session][:email]
+checkemail = params[:session][:email].downcase
   if checkemail
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
