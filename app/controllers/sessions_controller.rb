@@ -7,9 +7,9 @@ def create
  
   @authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
   email = auth_hash["extra"]["raw_info"]["email"]
-  if (User.find_by_email(email).exists?){ 
-    user = User.find_by_email(email)
-    @authorization.user_id = user.id}
+  usertest = User.find_by_email(email)
+  if (usertest.exists?){ 
+    @authorization.user_id = usertest.id}
   else {
  lastid = User.last.id.to_i + 1
  user1= User.new
