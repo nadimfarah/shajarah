@@ -2,7 +2,7 @@ Shajarah::Application.routes.draw do
   resources :profiles
   resources :users
   resources :sessions
-root  'static_pages#home'
+  root  'static_pages#home'
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
@@ -10,7 +10,6 @@ root  'static_pages#home'
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   get   '/login', :to => 'sessions#new', :as => :login 
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
-  get '/logout', :to => 'sessions#destroy'
   get '/users', :to => 'users#index'
    get '/users/:id', :to => 'users#show'
   
