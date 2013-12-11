@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+	 if self.email
+	 	before_save { self.email = email.downcase }
+	 end
 has_many :profiles
  #has_secure_password
 
