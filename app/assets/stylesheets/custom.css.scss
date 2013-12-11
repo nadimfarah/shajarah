@@ -141,5 +141,6 @@ form .btn-large {margin-left:33%;}
   @extend .control-group;
   @extend .error;
 }
-.dropdown-menu li a {color:rgb(51,51,51);}
+.dropdown-menu li a {color:rgb(51,51,51) !important;}
+.dropdown-menu:hover li a {color:rgb(51,51,51);}
 li:hover .dropdown-menu {display:block;}
