@@ -39,6 +39,6 @@ def failure
 end
   def destroy
   session[:user_id] = nil
-  render :text => "You've logged out!"
+ redirect_to root_link
 end
 end
