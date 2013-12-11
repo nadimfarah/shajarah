@@ -7,6 +7,7 @@ def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
           flash[:error] = 'Welcome Back' # Not quite right!
+          sign_in(user)
           redirect_to :controller => "users", :action => "show", :id => user.id
     else
       flash.now[:error] = 'Invalid email/password combination' # Not quite right!
@@ -19,8 +20,7 @@ def create
     usertest = User.find_by_email(email)
     if usertest
       @authorization.user_id = usertest.id
-
-
+      sign_in(usertest)
     else 
       lastid = User.last.id.to_i + 1
       user1= User.new
@@ -28,6 +28,7 @@ def create
       user1.email = email
       user1.save(:validate => false)
       @authorization.user_id = user1.id
+      sign_in(user1)
     end
     redirect_to :controller => "users", :action => "show", :id => @authorization.user_id
 end
