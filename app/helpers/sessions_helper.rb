@@ -1,5 +1,5 @@
 module SessionsHelper
-	  def sign_in(user)
+  def sign_in(user)
     self.current_user = user
   end
    def current_user=(user)
