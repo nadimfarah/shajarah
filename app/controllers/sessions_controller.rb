@@ -38,8 +38,8 @@ def failure
   render :text => "Sorry, but you didn't allow access to our app!"
 end
 def destroy
-  if session[:user_id]
-    session[:user_id] = nil
+  if current_user
+    current_user= nil
   end
  redirect_to root_path
 end
