@@ -38,7 +38,7 @@ def failure
   render :text => "Sorry, but you didn't allow access to our app!"
 end
 def destroy
-    current_user= nil
+sign_out()
  redirect_to root_path
 end
 end
