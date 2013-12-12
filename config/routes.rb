@@ -9,7 +9,7 @@ Shajarah::Application.routes.draw do
   match '/signup', to: 'users#new', via: 'get'
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   get   '/login', :to => 'sessions#new', :as => :login 
-  match 'signout', to: 'sessions#destroy', via: [:get, :post]
+  get   '/logout', :to => 'sessions#destroy', :as => :logout 
   get '/users', :to => 'users#index'
    get '/users/:id', :to => 'users#show'
   
