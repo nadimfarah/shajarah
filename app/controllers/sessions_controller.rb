@@ -34,6 +34,8 @@ def create
     redirect_to :controller => "users", :action => "show", :id => @authorization.user_id
 end
 session
+else
+  redirect_to current_user
 end
 end
 def failure
