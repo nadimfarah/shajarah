@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
   end
 
 def create
+  unless session
   if params[:session]
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
@@ -33,6 +34,7 @@ def create
     redirect_to :controller => "users", :action => "show", :id => @authorization.user_id
 end
 session
+end
 end
 def failure
   render :text => "Sorry, but you didn't allow access to our app!"
