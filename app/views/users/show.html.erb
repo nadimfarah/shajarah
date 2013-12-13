@@ -18,7 +18,10 @@
 <% if tester == false %>
 <%= link_to 'Complete Your Profile', new_profile_path(:user_id => @user.id, :relation => "Self") %>
 <% end %>
-
+<strong> Family:</strong><br/>
+<% @user.profiles.each do |p| %>
+<%= p.relation + ": " + p.firstname + " " + p.fathername + " " + p.lastname %>  |  <%= link_to 'Edit', edit_profile_path(profile) %> | <%= link_to 'Delete', profile, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
 
 
 
