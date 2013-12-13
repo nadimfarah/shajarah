@@ -4,8 +4,11 @@
   <h2>
     This is the home page for the Shajarah application.
   </h2>
-
+<% unless current_user %>
   <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary white" %>&nbsp; OR &nbsp;
   <%= link_to "Connect With Facebook", "/auth/facebook", class: "btn btn-large btn-primary facebook" %>
+  <% else %>
+    <%= link_to "View/Build Your Profile", current_user, class: "btn btn-large btn-primary facebook" %>
+  <% end %>
 </div>
 
