@@ -9,9 +9,9 @@
 <%end %>
 <% @user.profiles.each do |p| %>
 <% if p.relation == "Self" %>
-<%= "Name: " + p.firstname + " " + p.fathername + " " + p.lastname %>
+<%= "<strong>Name: </strong>" + p.firstname + " " + p.fathername + " " + p.lastname %>
 <% else %>
-<%= link_to 'Complete Your Profile', new_profile_path(:user_id => @user.id, :relation => "Self") %>
+<%= link_to 'Complete Your Profile', new_profile_path %>
 <% end %>
 <% end %>
 
