@@ -11,7 +11,7 @@
 <% @user.profiles.each do |p| %>
 <% if p.relation == "Self" %>
 <strong>Name: </strong>
-<%=  p.firstname + " " + p.fathername + " " + p.lastname %>
+<%=  p.firstname + " " + p.fathername + " " + p.lastname %>     <%= link_to 'Edit', edit_profile_path(p) %>
 <% tester = true %>
 <% end %>
 <% end %>
@@ -20,8 +20,10 @@
 <% end %>
 <strong> Family:</strong><br/>
 <% @user.profiles.each do |p| %>
-<%= p.relation + ": " + p.firstname + " " + p.fathername + " " + p.lastname %>  |  <%= link_to 'Edit', edit_profile_path(profile) %> | <%= link_to 'Delete', profile, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% unless p.relation == "Self" %>
+<%= p.relation + ": " + p.firstname + " " + p.fathername + " " + p.lastname %>    <%= link_to 'Edit', edit_profile_path(p) %> | <%= link_to 'Delete', p, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
-
+<% end %>
+<%= link_to 'Add Family Members', new_profile_path(:user_id => @user.id) %>
 
 
