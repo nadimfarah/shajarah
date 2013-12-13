@@ -31,13 +31,16 @@ class ProfilesController < ApplicationController
     respond_to do |format|
       unless Profile.find_by_user_id_and_relation(profile_params[:user_id], profile_params[:relation])
       if @profile.save
-        user = User.find(@profile.user_id)
+        user = User.find(profile_params[:user_id])
         format.html { redirect_to user, notice: 'Profile was successfully created.' }
         format.json { render action: 'show', status: :created, location: User }
       else
         format.html { render action: 'new' }
         format.json { render json: @profile.errors, status: :unprocessable_entity }
       end
+    else
+        format.html { render action: 'new' }
+        format.json { render json: @profile.errors, status: :unprocessable_entity }
     end
     end
   end
