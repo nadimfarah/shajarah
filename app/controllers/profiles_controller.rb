@@ -42,10 +42,8 @@ class ProfilesController < ApplicationController
   # PATCH/PUT /profiles/1
   # PATCH/PUT /profiles/1.json
   def update 
-    profile_params2 = profile_params
-    profile_params2[:user_id] = session[:user_id]
     respond_to do |format|
-      if @profile.update(profile_params2)
+      if @profile.update(profile_params)
         format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
         format.json { head :no_content }
       else
