@@ -28,8 +28,8 @@
 <strong> <%= p.relation + ": " %> </strong>
 <%=p.firstname + " " + p.fathername + " " + p.lastname %>
 <% if @user == current_user %>
- &nbsp;&nbsp; ---  <%= link_to 'Edit', edit_profile_path(p) %> | <%= link_to 'Delete', p, method: :delete, data: { confirm: 'Are you sure?' } %><br/>
- <% end %>
+ &nbsp;&nbsp; ---  <%= link_to 'Edit', edit_profile_path(p) %> | <%= link_to 'Delete', p, method: :delete, data: { confirm: 'Are you sure?' } %>
+ <% end %><br/>
 <% end %>
 <% end %>
 <% if @user == current_user %>
