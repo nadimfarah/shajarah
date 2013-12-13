@@ -29,9 +29,9 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profile_params)
     respond_to do |format|
+      user = User.find(profile_params[:user_id])
       unless Profile.find_by_user_id_and_relation(profile_params[:user_id], profile_params[:relation])
       if @profile.save
-        user = User.find(profile_params[:user_id])
         format.html { redirect_to user, notice: 'Profile was successfully created.' }
         format.json { render action: 'show', status: :created, location: User }
       else
@@ -39,7 +39,7 @@ class ProfilesController < ApplicationController
         format.json { render json: @profile.errors, status: :unprocessable_entity }
       end
     else
-        format.html { render action: 'new' }
+        format.html { redirect_to user, notice: 'Profile already exists.' }
         format.json { render json: @profile.errors, status: :unprocessable_entity }
     end
     end
