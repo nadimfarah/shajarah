@@ -15,7 +15,7 @@
 <% end %>
 <% end %>
 <% if tester == false %>
-<%= link_to 'Complete Your Profile', new_profile_path %>
+<%= link_to 'Complete Your Profile', new_profile_path(:user_id => @user.id, :relation => "Self") %>
 <% end %>
 
 
