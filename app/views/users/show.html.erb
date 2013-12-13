@@ -8,7 +8,11 @@
 </p>
 <%end %>
 <% @user.profiles.each do |p| %>
-<%= p.firstname %>
+<% if p.relation == "Self" %>
+<%= "Name: " + p.firstname + " " + p.fathername + " " + p.lastname %>
+<% else %>
+<%= link_to 'Complete Your Profile', new_profile_path(:user_id => @user.id, :relation => "Self") %>
+<% end %>
 <% end %>
 
 
