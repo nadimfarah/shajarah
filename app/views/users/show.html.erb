@@ -10,7 +10,8 @@
 <% tester = false %>
 <% @user.profiles.each do |p| %>
 <% if p.relation == "Self" %>
-<%= "<strong>Name: </strong>" + p.firstname + " " + p.fathername + " " + p.lastname %>
+<strong>Name: </strong>
+<%=  p.firstname + " " + p.fathername + " " + p.lastname %>
 <% tester = true %>
 <% end %>
 <% end %>
