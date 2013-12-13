@@ -29,17 +29,16 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profile_params)
     respond_to do |format|
-      user = User.find(profile_params[:user_id])
-      unless Profile.find_by_user_id_and_relation(profile_params[:user_id], profile_params[:relation])
+      unless Profile.find_by_user_id_and_relation(current_user.id, profile_params[:relation])
       if @profile.save
-        format.html { redirect_to user, notice: 'Profile was successfully created.' }
+        format.html { redirect_to current_user, notice: 'Profile was successfully created.' }
         format.json { render action: 'show', status: :created, location: User }
       else
         format.html { render action: 'new' }
         format.json { render json: @profile.errors, status: :unprocessable_entity }
       end
     else
-        format.html { redirect_to user, notice: 'Profile already exists.' }
+        format.html { redirect_to current_user, notice: 'Profile already exists.' }
         format.json { render json: @profile.errors, status: :unprocessable_entity }
     end
     end
@@ -50,7 +49,7 @@ class ProfilesController < ApplicationController
   def update 
     respond_to do |format|
       if @profile.update(profile_params)
-        format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
+        format.html { redirect_to current_user, notice: 'Profile was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -62,9 +61,10 @@ class ProfilesController < ApplicationController
   # DELETE /profiles/1
   # DELETE /profiles/1.json
   def destroy
+    
     @profile.destroy
     respond_to do |format|
-      format.html { redirect_to profiles_url }
+      format.html { redirect_to current_user }
       format.json { head :no_content }
     end
   end
