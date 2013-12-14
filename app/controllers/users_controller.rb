@@ -34,9 +34,9 @@ class UsersController < ApplicationController
         format.json { render action: 'show', status: :created, location: @user }
       else
         user1 = User.find_by_email(@user.email)
-        authent = user1.authorizations.first
+        authent = Authorization.find_by_user_id(user1.id)
         if  authent
-        format.html { redirect_to user1 }
+        format.html { redirect_to "/auth/facebook/" }
         else
         format.html { render action: 'new' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
