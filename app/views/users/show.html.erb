@@ -6,8 +6,8 @@
 	<% unless authent %>
   <%= gravatar(@user) %>
   <% else %>
-  <% imgurl ='http://graph.facebook.com/#' + authent.uid + '/picture?type=normal' %>
-  <%= image_tag(imgurl) %>" 
+  <% imgurl ='http://graph.facebook.com/' + authent.uid + '/picture?type=normal' %>
+  <%= image_tag(imgurl) %>
   <% end %>
   <strong>Email:</strong>
   <%= @user.email %>
