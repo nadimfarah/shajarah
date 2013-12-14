@@ -27,9 +27,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     respond_to do |format|
-      if user_is_from_omniauth?
-    @user.password = SecureRandom.hex(9)
-  end
       if @user.save
         flash[:success] = "Welcome to Shajarah!"
              sign_in(@user)
