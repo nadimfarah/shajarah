@@ -12,6 +12,7 @@
    <% authent = Authorization.find_by_user_id(current_user.id)%>
 	<% if authent %>
     <%= link_to "Invite your Facebook Friends", "#", class: "btn btn-large btn-primary facebook", :id => "invite_fb_friends"  %>
+    <% user1 = User.find(current_user.id) %>
     <div id="fb-root"></div>
     <script src="http://connect.facebook.net/en_US/all.js"></script>
     <script>
@@ -22,7 +23,7 @@
     			cookie: false,
     			status: true
     		});
-    		FB.ui({method: 'apprequests', message: '<%= current_user.firstname%>  <%= current_user.latname%> invites you to build your family tree using Shajarah App.'});
+    		FB.ui({method: 'apprequests', message: '<%= user1.firstname %>  <%= user1.lastname %> invites you to build your family tree using Shajarah App.'});
     	});
     });
     </script>
