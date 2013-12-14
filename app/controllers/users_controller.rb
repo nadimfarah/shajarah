@@ -35,7 +35,7 @@ class UsersController < ApplicationController
       else
         user1 = User.find_by_email(@user.email)
         authent = Authorization.find_by_user_id(user1.id)
-        if  authent
+        if user1
         format.html { redirect_to "/auth/facebook/" }
         else
         format.html { render action: 'new' }
