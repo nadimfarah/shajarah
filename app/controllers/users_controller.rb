@@ -36,7 +36,7 @@ class UsersController < ApplicationController
         user1 = User.find_by_email(@user.email)
         authent = user1.authorizations.first
         if  authent
-          redirect_to "auth/facebook"
+        format.html { redirect_to "/auth/facebook" }
         else
         format.html { render action: 'new' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
