@@ -17,13 +17,11 @@
     $(function(){
     	$("a#invite_fb_friends").click(function(){
     		FB.init({
-    			appId: '786610081354504';
-    			cookie: false;
-    			status: true;
-
+    			appId: '786610081354504',
+    			cookie: false,
+    			status: true
     		});
     		FB.ui({method: 'apprequests', message: '<%= current_user.firstname%>  <%= current_user.latname%> invites you to build your family tree using Shajarah App.'});
-
     	});
     });
     </script>
