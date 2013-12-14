@@ -10,7 +10,7 @@
   <%= image_tag(imgurl) %>
   <% end %>
   <strong>Email:</strong>
-  <%= @user.email %> | <%= link_to 'Edit Account', edit_user_path(user) %>
+  <%= @user.email %> | <%= link_to 'Edit Account', edit_user_path(@user) %>
 </p>
 <%end %>
 <% tester = false %>
