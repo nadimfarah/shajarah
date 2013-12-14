@@ -31,6 +31,7 @@ def create
       user1.email = email
       user1.save(:validate => false)
       @authorization.user_id = user1.id
+      @authorization.save
       sign_in(user1)
     end
     redirect_to :controller => "users", :action => "show", :id => @authorization.user_id
