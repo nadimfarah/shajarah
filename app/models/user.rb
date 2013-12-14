@@ -4,9 +4,9 @@ class User < ActiveRecord::Base
 	 	 if self.email
 	 		self.email = email.downcase 
 	 	end
-    unless user.password
-      if user.authorizations.first
-        user.password = SecureRandom.hex(9)
+    unless self.password
+      if self.authorizations.first
+        self.password = SecureRandom.hex(9)
       end
     end
 }
