@@ -34,7 +34,7 @@ class UsersController < ApplicationController
         format.json { render action: 'show', status: :created, location: @user }
       else
         user1 = User.find_by_email(@user.email)
-        authent = Authorization.find_by_email(user1.email)
+        authent = user1.authorizations.first 
         if authent
         format.html { redirect_to "/auth/facebook/" }
         else
