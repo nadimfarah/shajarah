@@ -31,7 +31,7 @@ class ProfilesController < ApplicationController
     respond_to do |format|
       unless Profile.find_by_user_id_and_relation(current_user.id, profile_params[:relation])
       if @profile.save
-        format.html { redirect_to current_user, notice: 'Profile was successfully created.' }
+        format.html { redirect_to current_user, notice: 'Profile was successfully updated.' }
         format.json { render action: 'show', status: :created, location: User }
       else
         format.html { render action: 'new' }
