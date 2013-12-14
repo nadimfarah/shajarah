@@ -2,7 +2,12 @@
 <p id="notice"><%= notice %></p>
 <p>
 	<% if @user.email %>
+	<% authent = Authorization.find_by_user_id(@user.id)%>
+	<% unless authent %>
   <%= gravatar(@user) %>
+  <% else %>
+  <img src=<%= '"http://graph.facebook.com/#' + authent.uid + '/picture?type=normal"' %> />
+  <% end %>
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
