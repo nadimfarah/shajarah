@@ -9,7 +9,7 @@
   <%= link_to "Connect With Facebook", "/auth/facebook", class: "btn btn-large btn-primary facebook" %>
   <% else %>
     <%= link_to "View/Build Your Profile", current_user, class: "btn btn-large btn-primary facebook" %>
-   <% authent = Authorization.find_by_user_id(@user.id)%>
+   <% authent = Authorization.find_by_user_id(current_user.id)%>
 	<% if authent %>
     <%= link_to "Invite your Facebook Friends", "#", class: "btn btn-large btn-primary facebook", :id => "invite_fb_friends"  %>
     <div id="fb-root"></div>
