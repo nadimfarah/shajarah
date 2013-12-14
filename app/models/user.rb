@@ -3,7 +3,10 @@ class User < ActiveRecord::Base
 	 	before_save {
 	 	 if self.email
 	 		self.email = email.downcase 
-	 	end}
+	 	end
+    if self.authorizations.first
+      [has_secure_password]
+    end}
 	 before_create :create_remember_token
 has_many :profiles
  #has_secure_password
