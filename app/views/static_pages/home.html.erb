@@ -11,7 +11,7 @@
     <%= link_to "View/Build Your Profile", current_user, class: "btn btn-large btn-primary facebook" %>
     <% if Authentication.find_by_user_id(current_user.id) %>
     <%= link_to "Invite your Facebook Friends", "#", class: "btn btn-large btn-primary facebook", :id => "invite_fb_friends"  %>
-    <div id="fb_root"></div>
+    <div id="fb-root"></div>
     <script src="http://connect.facebook.net/en_US/all.js"></script>
     <script>
     $(function(){
