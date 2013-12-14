@@ -13,6 +13,9 @@
   <%= @user.email %>
 </p>
 <%end %>
+<% @user.authorizations.each do |authorization| %>
+<%= authorization %>
+<% end %>
 <% tester = false %>
 <% @user.profiles.each do |p| %>
 <% if p.relation == "Self" %>
