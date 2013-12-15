@@ -2,11 +2,11 @@
 <p id="notice"><%= notice %></p>
 <p>
 	<% if @user.email %>
-	<% authent = @user.authorizations.first %>
-	<% unless authent %>
+	<% authent1 = @user.authorizations.first %>
+	<% unless authent1 %>
   <%= gravatar(@user) %>
   <% else %>
-  <% imgurl ='http://graph.facebook.com/' + authent.uid + '/picture?type=normal' %>
+  <% imgurl ='http://graph.facebook.com/' + authent1.uid + '/picture?type=normal' %>
   <%= image_tag(imgurl) %>
   <% end %>
   <strong>Email:</strong>
@@ -42,5 +42,23 @@
 <br/>
 <%= link_to 'Add Family Members', new_profile_path(:user_id => @user.id) %>
 <% end %>
-
+ <% authent = Authorization.find_by_user_id(current_user.id)%>
+  <% if authent %>
+    <%= link_to "Invite your Friends", "#", class: "btn btn-large btn-primary facebook", :id => "invite_fb_friends"  %>
+    <% user1 = User.find(current_user.id) %>
+    <div id="fb-root"></div>
+    <script src="http://connect.facebook.net/en_US/all.js"></script>
+    <script>
+    $(function(){
+      $("a#invite_fb_friends").click(function(){
+        FB.init({
+          appId: '786610081354504',
+          cookie: false,
+          status: true
+        });
+        FB.ui({method: 'apprequests', message: 'you have been invited to build your family tree using Shajarah App.'});
+      });
+    });
+    </script>
+    <% end %>
 
