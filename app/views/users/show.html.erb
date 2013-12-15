@@ -2,11 +2,11 @@
 <p id="notice"><%= notice %></p>
 <p>
 	<% if @user.email %>
-	<% authent = @user.authorizations.first %>
-	<% unless authent %>
+	<% authent1 = @user.authorizations.first %>
+	<% unless authent1 %>
   <%= gravatar(@user) %>
   <% else %>
-  <% imgurl ='http://graph.facebook.com/' + authent.uid + '/picture?type=normal' %>
+  <% imgurl ='http://graph.facebook.com/' + authent1.uid + '/picture?type=normal' %>
   <%= image_tag(imgurl) %>
   <% end %>
   <strong>Email:</strong>

@@ -8,8 +8,7 @@ class User < ActiveRecord::Base
       if self.authorizations.first
         self.password = SecureRandom.hex(9)
       end
-    end
-}
+    end }
 	 before_create :create_remember_token
 has_many :profiles
  #has_secure_password
