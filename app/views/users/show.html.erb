@@ -2,7 +2,7 @@
 <p id="notice"><%= notice %></p>
 <p>
 	<% if @user.email %>
-	<% authent1 = @user.authorizations.first %>
+<% authent1 = Authorization.find_by_user_id(@user.id)%>
 	<% unless authent1 %>
   <%= gravatar(@user) %>
   <% else %>
