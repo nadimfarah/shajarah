@@ -28,6 +28,7 @@ def create
       user1= User.new
       user1.id= lastid
       user1.email = email
+      user1.password = SecureRandom.hex(9)
       user1.save(:validate => false)
       @authorization.user_id = user1.id
       @authorization.save
