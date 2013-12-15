@@ -8,6 +8,7 @@ Shajarah::Application.routes.draw do
   match '/contact', to: 'static_pages#contact', via: 'get'
   match '/signup', to: 'users#new', via: 'get'
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  match 'auth/failure', to: root, via: [:get, :post]
   get   '/login', :to => 'sessions#new', :as => :login 
   get   '/logout', :to => 'sessions#destroy', :as => :logout 
   get '/users', :to => 'users#index'
