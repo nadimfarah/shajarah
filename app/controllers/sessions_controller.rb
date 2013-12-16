@@ -37,7 +37,7 @@ def create
       auth1 = Authorization.new
       auth1.uid = auth_hash["uid"]
       auth1.provider = auth_hash["provider"]
-      auth1.user_id = user1.id
+      auth1.user_id = current_user.id
       auth1.save
       end
     redirect_to :controller => "users", :action => "show", :id => current_user.id
