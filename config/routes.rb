@@ -2,11 +2,10 @@ Shajarah::Application.routes.draw do
   resources :profiles
   resources :users
   resources :sessions
-  root  'static_pages#home'
+  root  :to => 'static_pages#home'
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
-  post 'users/authorize'
   match '/signup', to: 'users#new', via: 'get'
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: 'auth/:provider/callback', via: [:get, :post]
