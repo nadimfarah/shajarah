@@ -22,13 +22,6 @@ def create
     email = auth_hash["extra"]["raw_info"]["email"]
     usertest = User.find_by_email(email)
     if usertest
-      unless @authorization
-      auth1 = Authorization.new
-      auth1.uid = auth_hash["uid"]
-      auth1.provider = auth_hash["provider"]
-      auth1.user_id = user1.id
-      auth1.save
-      end
       sign_in(usertest)
     else 
       lastid = User.last.id.to_i + 1
@@ -37,6 +30,10 @@ def create
       user1.email = email
       user1.password, user1.password_confirmation = SecureRandom.hex(9)
       user1.save(:validate => false)
+      sign_in(user1)
+    end
+
+    if current_user
       unless @authorization
       auth1 = Authorization.new
       auth1.uid = auth_hash["uid"]
@@ -44,10 +41,6 @@ def create
       auth1.user_id = user1.id
       auth1.save
       end
-      sign_in(user1)
-    end
-
-    if current_user
     redirect_to :controller => "users", :action => "show", :id => current_user.id
   else
     redirect_to root_path
