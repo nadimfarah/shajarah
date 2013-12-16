@@ -8,11 +8,13 @@ Shajarah::Application.routes.draw do
   match '/contact', to: 'static_pages#contact', via: 'get'
   match '/signup', to: 'users#new', via: 'get'
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  match 'auth/failure', to: 'auth/:provider/callback', via: [:get, :post]
   get   '/login', :to => 'sessions#new', :as => :login 
   get   '/logout', :to => 'sessions#destroy', :as => :logout 
   get '/users', :to => 'users#index'
    get '/users/:id', :to => 'users#show'
-   post 'static_pages/authorize'
+  match '/authorize',    to: 'static_pages#hauthorize', via: [:get, :post]
+
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
