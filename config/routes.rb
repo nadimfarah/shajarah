@@ -13,7 +13,7 @@ Shajarah::Application.routes.draw do
   get   '/logout', :to => 'sessions#destroy', :as => :logout 
   get '/users', :to => 'users#index'
    get '/users/:id', :to => 'users#show'
-  match '/authorize',    to: 'static_pages#hauthorize', via: [:get, :post]
+  match '/authorize',    to: 'static_pages#authorize', via: [:get, :post]
 
   
   # The priority is based upon order of creation: first created -> highest priority.
