@@ -12,7 +12,7 @@ class StaticPagesController < ApplicationController
   end
     def authorize
     respond_to do |format|
-      format.html 
+      format.html # authorize.html.erb
     end
   end
 end
