@@ -35,9 +35,8 @@ class UsersController < ApplicationController
       else 
         user1 = User.find_by_email(user_params[:email])
         authent = Authorization.find_by_user_id(user1.id)
-        if authent
-          user1.update(user_params)
-          flash[:success] = "Welcome Back, You already have an account connected to facebook!"
+        if authent && @user.update(user_params)
+        flash[:success] = "Welcome Back, You already have an account connected to facebook!"
         format.html { redirect_to "/auth/facebook/" }
         format.json { render action: 'show', location: @user }
         else
