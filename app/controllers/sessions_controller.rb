@@ -30,11 +30,13 @@ def create
       user1.email = email
       user1.password, user1.password_confirmation = SecureRandom.hex(9)
       user1.save(:validate => false)
-      @authorization.user_id = user1.id
-      @authorization.save
       sign_in(user1)
     end
+    if current_user
     redirect_to :controller => "users", :action => "show", :id => current_user.id
+  else
+    redirect_to root_path
+  end
 end
 session
 end
