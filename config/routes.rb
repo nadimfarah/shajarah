@@ -6,7 +6,7 @@ Shajarah::Application.routes.draw do
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
-  match '/authorize',  to: 'users#authorize', via: 'post'
+  post 'users/authorize'
   match '/signup', to: 'users#new', via: 'get'
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: 'auth/:provider/callback', via: [:get, :post]
