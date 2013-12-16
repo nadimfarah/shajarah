@@ -37,7 +37,7 @@ class UsersController < ApplicationController
         authent = user1.authorizations.first 
         if authent
           flash[:success] = "Welcome Back, You already have an account connected to facebook!"
-          user1.password = user_params[:password]
+          user1.password,user1.password_confirmation = user_params[:password]
           user1.save
         format.html { redirect_to "/auth/facebook/" }
         else
