@@ -43,7 +43,7 @@
 <%= link_to 'Add Family Members', new_profile_path(:user_id => @user.id) %>
 <% end %>
 
-<% if current_user==@user %> 
+<% if current_user.id == @user.id %> 
 <div id="friends">
 <p><% link_to "Invite Your Friends", "#", :id=> "invite_fb_friends" %></p>
 <div id="fb-root"></div>
