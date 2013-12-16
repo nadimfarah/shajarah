@@ -12,7 +12,7 @@ Shajarah::Application.routes.draw do
   get   '/logout', :to => 'sessions#destroy', :as => :logout 
   get '/users', :to => 'users#index'
    get '/users/:id', :to => 'users#show'
-  match 'users/authorize', to: 'users#authorize', via: [:get, :post]
+  match 'authorize', to: 'static_pages#authorize', via: [:get, :post]
 
 
   

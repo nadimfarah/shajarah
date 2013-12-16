@@ -12,11 +12,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def authorize
-    respond_to do |format|
-      format.html { redirect_to "http://powerful-forest-7444.herokuapp.com/auth/facebook"}
-    end
-  end
+
 
   # GET /users/new
   def new
