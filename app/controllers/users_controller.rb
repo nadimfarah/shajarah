@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
   def authorize
     respond_to do |format|
-      format.html { redirect_to "/auth/facebook"}
+      format.html { redirect_to "http://powerful-forest-7444.herokuapp.com/auth/facebook"}
     end
   end
 
