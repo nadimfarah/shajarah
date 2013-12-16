@@ -4,21 +4,22 @@ class User < ActiveRecord::Base
 	 	 if self.email
 	 		self.email = email.downcase 
 	 	end
-    unless self.password
-      if self.authorizations.first
+    usertest1 = User.find_by_email(self.email)
+      if self.authorizations.first 
+        unless usertest1
         self.password = SecureRandom.hex(9)
       end
+
     end }
 	 before_create :create_remember_token
 has_many :profiles
- #has_secure_password
 
   validates :email,
                     format:     { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
                     uniqueness: { case_sensitive: false }
 
   validates :password, length: { minimum: 6 }
-      [has_secure_password]
+[has_secure_password]
 has_many :authorizations
 def User.new_remember_token
     SecureRandom.urlsafe_base64
