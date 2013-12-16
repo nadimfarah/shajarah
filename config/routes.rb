@@ -12,7 +12,7 @@ Shajarah::Application.routes.draw do
   get   '/logout', :to => 'sessions#destroy', :as => :logout 
   get '/users', :to => 'users#index'
    get '/users/:id', :to => 'users#show'
-
+  match '/signup/callback', to: 'users#new', via: [:get, :post]
 
 
   
