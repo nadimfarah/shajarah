@@ -68,6 +68,9 @@ class UsersController < ApplicationController
     @user.profiles.each do |p|
       p.destroy
     end
+    @user.authorizations.each do |a|
+      a.destroy
+    end
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url }
