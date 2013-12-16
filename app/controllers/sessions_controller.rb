@@ -32,7 +32,6 @@ def create
       user1.save(:validate => false)
       sign_in(user1)
     end
-
     if current_user
       unless @authorization
       auth1 = Authorization.new
