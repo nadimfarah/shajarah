@@ -11,7 +11,12 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
-
+  
+  def authorize
+    respond_to do |format|
+      format.html # authorize.html.erb
+    end
+  end
 
   # GET /users/new
   def new
