@@ -11,10 +11,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
-  
+
   def authorize
     respond_to do |format|
-      format.html # authorize.html.erb
+      format.html { redirect_to "/auth/facebook"}
     end
   end
 
