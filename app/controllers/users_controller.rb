@@ -34,7 +34,7 @@ class UsersController < ApplicationController
         format.json { render action: 'show', status: :created, location: @user }
       else
         user1 = User.find_by_email(@user.email)
-        authent = user1.authorizations.first 
+        authent = Authorizations.find_by_user_id(user1.id) 
         if authent
           flash[:success] = "Welcome Back, You already have an account connected to facebook!"
           user1.password,user1.password_confirmation = user_params[:password]
