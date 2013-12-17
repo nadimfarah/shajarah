@@ -22,5 +22,5 @@ module Shajarah
   config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
     config.assets.initialize_on_precompile = false
   end
-
+config.action_dispatch.default_headers[:'X-Frame-Options'] = "ALLOW-FROM https://apps.facebook.com"
 end
