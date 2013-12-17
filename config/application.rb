@@ -21,6 +21,5 @@ module Shajarah
     # config.i18n.default_locale = :de
   config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
     config.assets.initialize_on_precompile = false
-    config.action_dispatch.default_headers[:'X-Frame-Options'] = "ALLOW"
   end
 end
