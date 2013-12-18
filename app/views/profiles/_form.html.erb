@@ -26,15 +26,8 @@
     <%= f.text_field :lastname %>
   </div>
   <div class="field">
-  <select name="relation" id="relation">
-  <option value="Father">Father</option>
-  <option value="Mother">Mother</option>
-  <option value="Son">Son</option>
-  <option value="Daughter">Daughter</option>
-  <option value="Brother">Brother</option>
-  <option value="Sister">Sister</option>
-  <option value=">Self">Self</option>
-</select>
+<%= select_tag(:relation,options_for_select([['Father', 1],['Mother', 2]],2) )%>
+
 </div>
   <div class="hidden">
          <%= f.text_field :user_id %><br>
