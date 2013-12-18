@@ -29,6 +29,17 @@
     <%= f.label :relation %><br>
     <%= f.text_field :relation %>
   </div>
+  <div class="field">
+  <select name="relation" id="relation">
+  <option value="Father">Father</option>
+  <option value="Mother">Mother</option>
+  <option value="Son">Son</option>
+  <option value="Daughter">Daughter</option>
+  <option value="Brother">Brother</option>
+  <option value="Sister">Sister</option>
+  <option value=">Self">Self</option>
+</select>
+</div>
   <div class="hidden">
          <%= f.text_field :user_id %><br>
   </div>
