@@ -25,10 +25,15 @@
     <%= f.label :lastname %><br>
     <%= f.text_field :lastname %>
   </div>
+  <% unless  @profile.relation == "Self" %>
   <div class="field">
-<%= f.select(:relation,options_for_select([['Father', 'Father'],['Mother', 'Mother'],['Brother', 'Brother'],['Sister', 'Sister'],['Son', 'Son'],['Daughter', 'Daughter'],['Spouse', 'Spouse'],['Self', 'Self']],2) )%>
-
+<%= f.select(:relation,options_for_select([['Father', 'Father'],['Mother', 'Mother'],['Brother', 'Brother'],['Sister', 'Sister'],['Son', 'Son'],['Daughter', 'Daughter'],['Spouse', 'Spouse']],2) )%>
 </div>
+<% else %>
+  <div class="hidden">
+<%= f.select(:relation,options_for_select([['Self', 'Self']],2) )%>
+</div>
+<% end %>
   <div class="hidden">
          <%= f.text_field :user_id %><br>
   </div>
