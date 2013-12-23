@@ -4,11 +4,7 @@ class User < ActiveRecord::Base
 	 	 if self.email
 	 		self.email = email.downcase 
 	 	end
-    unless self.password
-      if self.authorizations.first
-        self.password, self.password_confirmation = SecureRandom.hex(9)
-      end
-    end }
+    }
 	 before_create :create_remember_token
 has_many :profiles
  #has_secure_password
