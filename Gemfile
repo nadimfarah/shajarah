@@ -25,6 +25,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'bootstrap-sass'
+gem 'newrelic_rpm'
 group :doc do
 
 gem 'bootswatch-rails'
